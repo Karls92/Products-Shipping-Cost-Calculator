@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="Nitcelis Del C. Bravo A." />
+        <title>Products Shipping Cost Calculator</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div id="app">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="card-panel blue-grey darken-4">
+                        
+                        <div class="row">
+                            <div class="col s12">
+                                <!-- app title -->
+                                <h1 class="center-align white-text">Products Shipping Cost Calculator</h1>
+                                <!-- details -->
+                                <p class="white-text center-align">From Company that manufactures and ships Toy Clowns and Dolls.</p>
+                            </div>
+                        </div>
+
+                      <!-- Form to get information of Delivery -->
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="address" type="text" placeholder="Delivery Address" class="validate white-text" v-model="address">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m4">
+                                        <input id="toy1" type="number" step="1" min="0" placeholder="Number of Clowns" class="validate white-text" v-model="products.clowns.quantity">
+                                    </div>
+                                    <div class="input-field col s12 m4">
+                                        <input id="toy2" type="number" step="1" min="0" placeholder="Number of Dolls" class="validate white-text" v-model="products.dolls.quantity">
+                                    </div>
+                                    <div class="input-field col s12 m4">
+                                        <input id="cost_gr" type="number" step="0.01" min="1.0" placeholder="Price of each weight gram ($)" class="validate white-text" v-model="cost_gram">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- showing information about the weight of each product. This helps to calculate the shipping cost of the package-->
+                        <div class="row">
+                            <div class="col s12 m5">
+                                <h3 class="white-text">Weight of each Product</h3>
+                                <p class="white-text">
+                                    One Clown: {{products.clowns.weight}}g
+                                    <br>
+                                    One Doll: {{products.dolls.weight}}g
+                                </p>
+                            </div>
+                            <div class="col s12 m7">
+                                <h3 class="white-text">Shipping Cost</h3>
+                                <h4 class="white-text">{{getDeliveryCost}} $</h4>
+                            </div>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
